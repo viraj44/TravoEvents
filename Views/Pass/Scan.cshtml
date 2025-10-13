@@ -1,0 +1,1027 @@
+﻿<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    :root {
+
+        --primary: #4f46e5;
+        --primary-dark: #4338ca;
+        --secondary: #10b981;
+        --danger: #ef4444;
+        --warning: #f59e0b;
+        --light: #f8fafc;
+        --dark: #1e293b;
+        --gray: #64748b;
+        --border: #e2e8f0;
+    }
+
+    body {
+        background-color: #f1f5f9;
+        color: var(--dark);
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 12px;
+    }
+
+    header {
+        background: white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        padding: 12px 15px;
+        margin-bottom: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--primary);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 16px;
+    }
+
+    .logo-text {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    .page-header {
+        margin-bottom: 15px;
+    }
+
+        .page-header h1 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            color: var(--gray);
+            font-size: 13px;
+        }
+
+    .card {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border);
+        margin-bottom: 12px;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .card-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    .access-control-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--dark);
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .form-input, .form-select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        font-size: 15px;
+        color: var(--dark);
+        transition: all 0.15s ease;
+        -webkit-appearance: none;
+    }
+
+        .form-input:focus, .form-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+        }
+
+    .scanner-box {
+        border: 2px dashed var(--border);
+        border-radius: 8px;
+        padding: 20px 15px;
+        text-align: center;
+        transition: all 0.2s ease;
+        background: #f8fafc;
+        min-height: 180px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    .scanner-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        background: var(--primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        color: white;
+    }
+
+    .scanner-text {
+        font-size: 15px;
+        color: var(--dark);
+        margin-bottom: 6px;
+        font-weight: 600;
+    }
+
+    .scanner-subtext {
+        color: var(--gray);
+        font-size: 12px;
+    }
+
+    .scan-animation {
+        width: 150px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+        margin: 0 auto 12px;
+        animation: scan 2s infinite;
+    }
+
+    @@keyframes scan {
+        0%
+
+    {
+        transform: translateY(-70px);
+    }
+
+    50% {
+        transform: translateY(70px);
+    }
+
+    100% {
+        transform: translateY(-70px);
+    }
+
+    }
+
+    .btn {
+        background: white;
+        color: var(--dark);
+        border: 1px solid var(--border);
+        padding: 10px 14px;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-weight: 500;
+        width: 100%;
+    }
+
+        .btn:hover {
+            background: #f8fafc;
+            border-color: var(--gray);
+        }
+
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+    .btn-success {
+        background: var(--secondary);
+        color: white;
+        border: none;
+    }
+
+        .btn-success:hover {
+            background: #0da271;
+        }
+
+    .btn-danger {
+        background: white;
+        color: var(--danger);
+        border: 1px solid #fecaca;
+    }
+
+        .btn-danger:hover {
+            background: #fef2f2;
+        }
+
+    .btn-sm {
+        padding: 8px 12px;
+        font-size: 13px;
+        width: auto;
+    }
+
+    .access-result {
+        text-align: center;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 12px;
+        display: none;
+    }
+
+    .access-granted {
+        background: #f0fdf4;
+        color: #166534;
+        border: 1px solid #bbf7d0;
+    }
+
+    .access-denied {
+        background: #fef2f2;
+        color: #991b1b;
+        border: 1px solid #fecaca;
+    }
+
+    .access-result-icon {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .access-result-title {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    .access-result-details {
+        font-size: 14px;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+
+    .manual-entry {
+        background: #f8fafc;
+        border-radius: 6px;
+        padding: 12px;
+        margin-top: 10px;
+        border: 1px solid var(--border);
+    }
+
+    .manual-entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .manual-entry-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 8px;
+        margin-top: 10px;
+    }
+
+        .action-buttons .btn {
+            flex: 1;
+        }
+
+    .table-container {
+        overflow-x: auto;
+        border-radius: 6px;
+        border: 1px solid var(--border);
+        -webkit-overflow-scrolling: touch;
+        margin-top: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+        min-width: 500px;
+    }
+
+    thead {
+        background: #f8fafc;
+        border-bottom: 1px solid var(--border);
+    }
+
+    th {
+        padding: 10px 8px;
+        text-align: left;
+        font-weight: 600;
+        color: var(--gray);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    td {
+        padding: 10px 8px;
+        border-bottom: 1px solid var(--border);
+        color: var(--dark);
+    }
+
+    tbody tr {
+        transition: background 0.1s ease;
+    }
+
+        tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+    .status-badge {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 10px;
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    .status-granted {
+        background: #f0fdf4;
+        color: var(--secondary);
+    }
+
+    .status-declined {
+        background: #fef2f2;
+        color: var(--danger);
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 6px;
+        padding: 12px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 6px;
+    }
+
+    .stat-icon {
+        width: 32px;
+        height: 32px;
+        background: var(--primary);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: white;
+    }
+
+    .stat-number {
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--dark);
+    }
+
+    .stat-label {
+        font-size: 11px;
+        color: var(--gray);
+    }
+
+    .alert {
+        padding: 10px 12px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+        display: none;
+        animation: slideDown 0.3s ease;
+        border: 1px solid;
+        font-size: 13px;
+    }
+
+        .alert.success {
+            background: #f0fdf4;
+            color: #166534;
+            border-color: #bbf7d0;
+        }
+
+        .alert.error {
+            background: #fef2f2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }
+
+        .alert.warning {
+            background: #fffbeb;
+            color: #92400e;
+            border-color: #fed7aa;
+        }
+
+        .alert.active {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+    @@keyframes slideDown {
+        from
+
+    {
+        transform: translateY(-8px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    }
+
+    /* Mobile-specific improvements */
+    @@media (max-width: 480px) {
+        .container
+
+    {
+        padding: 8px;
+    }
+
+    header {
+        padding: 10px 12px;
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+
+    .logo {
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        text-align: left;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+
+    .scanner-box {
+        padding: 15px 10px;
+        min-height: 150px;
+    }
+
+    .scanner-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+
+        .card-header .btn-sm {
+            align-self: stretch;
+        }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px 6px;
+    }
+
+    }
+
+    @@media (min-width: 768px) {
+        .container
+
+    {
+        max-width: 800px;
+        padding: 15px;
+    }
+
+    .access-control-panel {
+        flex-direction: row;
+        align-items: flex-end;
+    }
+
+        .access-control-panel .form-group {
+            flex: 1;
+        }
+
+    .btn {
+        width: auto;
+    }
+
+    .action-buttons .btn {
+        flex: none;
+    }
+
+    }
+
+    /* Improve touch targets */
+    .btn, .action-btn {
+        min-height: 40px;
+    }
+
+    /* Prevent zoom on input focus for iOS */
+    @@media (max-width: 768px) {
+        input, select, textarea
+
+    {
+        font-size: 16px;
+    }
+
+    }
+</style>
+
+<div class="">
+    <header style="display:none;">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="logo-text">Access Control Scanner</div>
+        </div>
+        <div class="user-info">
+            <div class="user-avatar">JD</div>
+            <span>John Doe</span>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <h1>QR Code Scanner</h1>
+        <p>Scan participant QR codes to grant or deny access</p>
+    </div>
+
+    <div id="alertBox" class="alert"></div>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div>
+                <div class="stat-number" id="grantedCount">0</div>
+                <div class="stat-label">Access Granted</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            <div>
+                <div class="stat-number" id="deniedCount">0</div>
+                <div class="stat-label">Access Denied</div>
+            </div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <div class="stat-number" id="totalScans">0</div>
+                <div class="stat-label">Total Scans</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Access Point Dropdown at the Top -->
+    <div class="card">
+        <div class="card-header" style="display:none;">
+            <div class="card-title">Access Control</div>
+        </div>
+
+        <div class="access-control-panel">
+            <div class="form-group">
+                <label class="form-label">Access Point</label>
+                <select class="form-select" id="accessPoint">
+                    <option value="">Select Access Point</option>
+                    <option value="main-entrance">Main Entrance</option>
+                    <option value="vip-lounge">VIP Lounge</option>
+                    <option value="exhibition-hall">Exhibition Hall</option>
+                    <option value="conference-room-a">Conference Room A</option>
+                    <option value="conference-room-b">Conference Room B</option>
+                    <option value="networking-area">Networking Area</option>
+                </select>
+            </div>
+
+            <div class="form-group" style="display:none;">
+                <label class="form-label">Coordinator</label>
+                <input type="text" class="form-input" id="coordinatorName" value="John Doe" readonly>
+            </div>
+
+            <div class="form-group" style="display:none;">
+                <label class="form-label">Current Time</label>
+                <input type="text" class="form-input" id="currentTime" readonly>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Scanner Section -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">QR Code Scanner</div>
+            <button class="btn btn-primary btn-sm" id="toggleCamera">
+                <i class="fas fa-camera"></i> Toggle Camera
+            </button>
+        </div>
+
+        <div class="scanner-box" id="scannerBox">
+            <div class="scanner-icon">
+                <i class="fas fa-qrcode"></i>
+            </div>
+            <div class="scan-animation"></div>
+            <div class="scanner-text">Ready to Scan</div>
+            <div class="scanner-subtext">Point camera at a QR code</div>
+        </div>
+
+        <div class="access-result" id="accessResult">
+            <div class="access-result-icon" id="resultIcon"></div>
+            <div class="access-result-title" id="resultTitle"></div>
+            <div class="access-result-details" id="resultDetails"></div>
+            <button class="btn btn-primary" id="nextScanBtn">
+                <i class="fas fa-sync"></i> Scan Next QR Code
+            </button>
+        </div>
+
+        <div class="manual-entry">
+            <div class="manual-entry-header">
+                <div class="manual-entry-title">Manual Entry</div>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Participant ID</label>
+                <input type="text" class="form-input" id="manualId" placeholder="Enter participant ID">
+            </div>
+            <div class="action-buttons">
+                <button class="btn btn-success" onclick="manualCheckAccess('granted')">
+                    <i class="fas fa-check"></i> Grant Access
+                </button>
+                <button class="btn btn-danger" onclick="manualCheckAccess('denied')">
+                    <i class="fas fa-times"></i> Deny Access
+                </button>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" onclick="simulateScan()" style="margin-top: 10px;">
+            <i class="fas fa-camera"></i> Simulate QR Scan
+        </button>
+    </div>
+
+    <!-- Access Log Table -->
+    <div class="card">
+        <div class="card-header">
+            <div class="card-title">Access Log</div>
+            <button class="btn btn-sm" onclick="clearLog()">
+                <i class="fas fa-trash"></i> Clear Log
+            </button>
+        </div>
+
+        <div class="table-container">
+            <table id="accessLogTable">
+                <thead>
+                    <tr>
+                        <th>Time Stamp</th>
+                        <th>Name</th>
+                        <th>Access Point</th>
+                        <th>Access</th>
+                        <th>Coordinator</th>
+                    </tr>
+                </thead>
+                <tbody id="accessLogBody">
+                    <!-- Log entries will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Sample participant data
+    const participants = [
+        { id: 'TC2023-VP-001', name: 'Viraj Patel', access: ['main-entrance', 'vip-lounge', 'exhibition-hall'] },
+        { id: 'TC2023-KS-002', name: 'Krupal Shah', access: ['main-entrance', 'exhibition-hall'] },
+        { id: 'TC2023-TM-003', name: 'Trushant Mehta', access: ['main-entrance'] },
+        { id: 'TC2023-PS-004', name: 'Priya Sharma', access: ['main-entrance', 'conference-room-a'] },
+        { id: 'TC2023-RK-005', name: 'Rahul Kumar', access: ['main-entrance', 'vip-lounge', 'conference-room-b'] }
+    ];
+
+    let accessLog = [];
+    let grantedCount = 0;
+    let deniedCount = 0;
+    let totalScans = 0;
+
+    // Initialize the page
+    function initializePage() {
+        updateStats();
+        updateTime();
+        setInterval(updateTime, 1000);
+
+        // Load any existing log from localStorage
+        const savedLog = localStorage.getItem('accessLog');
+        if (savedLog) {
+            accessLog = JSON.parse(savedLog);
+            updateAccessLogTable();
+            updateStats();
+        }
+    }
+
+    // Update current time
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('currentTime').value = now.toLocaleTimeString();
+    }
+
+    // Update statistics
+    function updateStats() {
+        document.getElementById('grantedCount').textContent = grantedCount;
+        document.getElementById('deniedCount').textContent = deniedCount;
+        document.getElementById('totalScans').textContent = totalScans;
+    }
+
+    // Simulate QR code scan
+    function simulateScan() {
+        const accessPoint = document.getElementById('accessPoint').value;
+        if (!accessPoint) {
+            showAlert('Please select an access point', 'error');
+            return;
+        }
+
+        // Randomly select a participant
+        const randomParticipant = participants[Math.floor(Math.random() * participants.length)];
+        processScan(randomParticipant.id, accessPoint);
+    }
+
+    // Process QR scan
+    function processScan(participantId, accessPoint) {
+        totalScans++;
+
+        // Find participant
+        const participant = participants.find(p => p.id === participantId);
+        const coordinatorName = document.getElementById('coordinatorName').value;
+        const timestamp = new Date().toLocaleString();
+
+        if (!participant) {
+            // Participant not found
+            showAccessResult('denied', `Participant ID: ${participantId}`, 'Invalid QR Code - Participant not registered');
+            logAccess(timestamp, `ID: ${participantId}`, accessPoint, 'Declined', coordinatorName);
+            deniedCount++;
+        } else {
+            // Check if participant has access to this point
+            const hasAccess = participant.access.includes(accessPoint);
+
+            if (hasAccess) {
+                showAccessResult('granted', participant.name, `Access granted to ${getAccessPointName(accessPoint)}`);
+                logAccess(timestamp, participant.name, accessPoint, 'Granted', coordinatorName);
+                grantedCount++;
+            } else {
+                showAccessResult('denied', participant.name, `No access to ${getAccessPointName(accessPoint)}`);
+                logAccess(timestamp, participant.name, accessPoint, 'Declined', coordinatorName);
+                deniedCount++;
+            }
+        }
+
+        updateStats();
+    }
+
+    // Manual access check
+    function manualCheckAccess(action) {
+        const participantId = document.getElementById('manualId').value;
+        const accessPoint = document.getElementById('accessPoint').value;
+
+        if (!participantId) {
+            showAlert('Please enter a participant ID', 'error');
+            return;
+        }
+
+        if (!accessPoint) {
+            showAlert('Please select an access point', 'error');
+            return;
+        }
+
+        totalScans++;
+        const participant = participants.find(p => p.id === participantId);
+        const coordinatorName = document.getElementById('coordinatorName').value;
+        const timestamp = new Date().toLocaleString();
+
+        if (!participant) {
+            showAccessResult('denied', `Participant ID: ${participantId}`, 'Invalid Participant ID');
+            logAccess(timestamp, `ID: ${participantId}`, accessPoint, 'Declined', coordinatorName);
+            deniedCount++;
+        } else {
+            if (action === 'granted') {
+                showAccessResult('granted', participant.name, `Access granted to ${getAccessPointName(accessPoint)}`);
+                logAccess(timestamp, participant.name, accessPoint, 'Granted', coordinatorName);
+                grantedCount++;
+            } else {
+                showAccessResult('denied', participant.name, `Access denied to ${getAccessPointName(accessPoint)}`);
+                logAccess(timestamp, participant.name, accessPoint, 'Declined', coordinatorName);
+                deniedCount++;
+            }
+        }
+
+        document.getElementById('manualId').value = '';
+        updateStats();
+    }
+
+    // Show access result
+    function showAccessResult(result, name, details) {
+        const accessResult = document.getElementById('accessResult');
+        const resultIcon = document.getElementById('resultIcon');
+        const resultTitle = document.getElementById('resultTitle');
+        const resultDetails = document.getElementById('resultDetails');
+
+        accessResult.className = 'access-result';
+
+        if (result === 'granted') {
+            accessResult.classList.add('access-granted');
+            resultIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
+            resultTitle.textContent = 'Access Granted';
+        } else {
+            accessResult.classList.add('access-denied');
+            resultIcon.innerHTML = '<i class="fas fa-times-circle"></i>';
+            resultTitle.textContent = 'Access Denied';
+        }
+
+        resultDetails.textContent = `${name} - ${details}`;
+        accessResult.style.display = 'block';
+
+        // Hide scanner box
+        document.getElementById('scannerBox').style.display = 'none';
+    }
+
+    // Log access attempt
+    function logAccess(timestamp, name, accessPoint, access, coordinator) {
+        const logEntry = {
+            timestamp,
+            name,
+            accessPoint: getAccessPointName(accessPoint),
+            access,
+            coordinator
+        };
+
+        accessLog.unshift(logEntry);
+
+        // Keep only last 30 entries
+        if (accessLog.length > 30) {
+            accessLog = accessLog.slice(0, 30);
+        }
+
+        // Save to localStorage
+        localStorage.setItem('accessLog', JSON.stringify(accessLog));
+
+        updateAccessLogTable();
+    }
+
+    // Update access log table
+    function updateAccessLogTable() {
+        const tbody = document.getElementById('accessLogBody');
+        tbody.innerHTML = '';
+
+        accessLog.forEach(entry => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${entry.timestamp}</td>
+                <td>${entry.name}</td>
+                <td>${entry.accessPoint}</td>
+                <td>
+                    <span class="status-badge ${entry.access === 'Granted' ? 'status-granted' : 'status-declined'}">
+                        ${entry.access}
+                    </span>
+                </td>
+                <td>${entry.coordinator}</td>
+            `;
+            tbody.appendChild(tr);
+        });
+    }
+
+    // Get access point name
+    function getAccessPointName(value) {
+        const names = {
+            'main-entrance': 'Main Entrance',
+            'vip-lounge': 'VIP Lounge',
+            'exhibition-hall': 'Exhibition Hall',
+            'conference-room-a': 'Conference Room A',
+            'conference-room-b': 'Conference Room B',
+            'networking-area': 'Networking Area'
+        };
+
+        return names[value] || value;
+    }
+
+    // Clear access log
+    function clearLog() {
+        if (confirm('Are you sure you want to clear the access log?')) {
+            accessLog = [];
+            localStorage.removeItem('accessLog');
+            updateAccessLogTable();
+            showAlert('Access log cleared', 'success');
+        }
+    }
+
+    // Show alert
+    function showAlert(message, type) {
+        const alertBox = document.getElementById('alertBox');
+        alertBox.textContent = message;
+        alertBox.className = `alert ${type} active`;
+        setTimeout(() => {
+            alertBox.classList.remove('active');
+        }, 3000);
+    }
+
+    // Set up event listeners
+    document.getElementById('nextScanBtn').addEventListener('click', function() {
+        document.getElementById('accessResult').style.display = 'none';
+        document.getElementById('scannerBox').style.display = 'flex';
+    });
+
+    // Initialize the page when loaded
+    document.addEventListener('DOMContentLoaded', initializePage);
+</script>
