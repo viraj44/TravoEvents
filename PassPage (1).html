@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Event Pass - Tech Innovation Summit 2023</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fb;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .intro {
+            margin-bottom: 25px;
+        }
+        
+        .intro h2 {
+            color: #2D3748;
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        .pass-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 25px 0;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .pass-header {
+            background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);
+            color: white;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .event-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .event-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .pass-type {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .pass-body {
+            padding: 25px;
+        }
+        
+        .attendee-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+        
+        .attendee-info {
+            flex: 1;
+        }
+        
+        .attendee-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .attendee-company {
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+        
+        .group-badge {
+            display: inline-block;
+            background: #8A85FF;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .detail-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .detail-label {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .detail-value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+        
+        .access-section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .access-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .access-badge {
+            background: #f8f9fa;
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .instructions {
+            background: #f0f9ff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+        
+        .instructions h3 {
+            color: #2D3748;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+        }
+        
+        .qr-placeholder {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        
+        .qr-placeholder p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .btn {
+            flex: 1;
+            background: #6C63FF;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            display: block;
+        }
+        
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #2D3748;
+        }
+        
+        .footer {
+            background: #2D3748;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .footer p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .contact-info {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .contact-info a {
+            color: #8A85FF;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+            }
+            
+            .attendee-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <h1>Your Event Pass is Ready!</h1>
+            <p>Tech Innovation Summit 2023 | November 15-17, San Francisco</p>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>Hello Michael,</h2>
+                <p>We're excited to have you join us at the Tech Innovation Summit 2023! Your digital event pass is attached to this email and ready to use.</p>
+                <p>Please save this pass to your mobile device or print it for quick access during the event.</p>
+            </div>
+            
+            <div class="pass-container">
+                <div class="pass-header">
+                    <div class="pass-type">VIP</div>
+                    <div class="event-title">TECH INNOVATION SUMMIT</div>
+                    <div class="event-subtitle">November 15-17, 2023 | San Francisco</div>
+                </div>
+                <div class="pass-body">
+                    <div class="attendee-section">
+                        <div class="avatar">MC</div>
+                        <div class="attendee-info">
+                            <div class="attendee-name">Michael Chen</div>
+                            <div class="attendee-company">FutureTech Inc.</div>
+                            <div class="group-badge">VIP Group A</div>
+                        </div>
+                    </div>
+
+                    <div class="details-grid">
+                        <div class="detail-card">
+                            <div class="detail-label">DATE</div>
+                            <div class="detail-value">Nov 15-17</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">TIME</div>
+                            <div class="detail-value">9:00 AM - 6:00 PM</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">VENUE</div>
+                            <div class="detail-value">Moscone Center</div>
+                        </div>
+                        <div class="detail-card">
+                            <div class="detail-label">TICKET ID</div>
+                            <div class="detail-value">#TIS23-6105</div>
+                        </div>
+                    </div>
+
+                    <div class="access-section">
+                        <div class="section-title">ACCESS POINTS</div>
+                        <div class="access-points">
+                            <div class="access-badge">Main Entrance</div>
+                            <div class="access-badge">VIP Lounge</div>
+                            <div class="access-badge">Networking Hall</div>
+                            <div class="access-badge">Exhibition Area</div>
+                            <div class="access-badge">Speaker Sessions</div>
+                            <div class="access-badge">After Party</div>
+                        </div>
+                    </div>
+
+                    <div class="qr-placeholder">
+                        <!-- In a real email, this would be an actual QR code image -->
+                        <div style="width: 180px; height: 180px; background: #e2e8f0; margin: 0 auto; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                            <span style="color: #718096;">[QR Code]</span>
+                        </div>
+                        <p>Scan for entry at access points</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="instructions">
+                <h3>How to Use Your Digital Pass</h3>
+                <ol>
+                    <li><strong>Save to your phone</strong> - Keep this email accessible or take a screenshot of your pass</li>
+                    <li><strong>Present at entry</strong> - Show your pass at registration and access points</li>
+                    <li><strong>QR code scanning</strong> - Event staff will scan your QR code for entry</li>
+                    <li><strong>Bring ID</strong> - Please have a valid photo ID ready for verification</li>
+                </ol>
+            </div>
+            
+            <div class="actions">
+                <a href="#" class="btn">Add to Apple Wallet</a>
+                <a href="#" class="btn btn-secondary">Save to Google Pay</a>
+            </div>
+            
+            <div style="margin-top: 25px;">
+                <p><strong>Event Details:</strong></p>
+                <p>Tech Innovation Summit 2023<br>
+                Moscone Center, 747 Howard St, San Francisco, CA 94103<br>
+                November 15-17, 2023 | 9:00 AM - 6:00 PM Daily</p>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background: #f0f9ff; border-radius: 8px;">
+                <p><strong>VIP Benefits:</strong> Your VIP pass includes access to the exclusive VIP lounge, priority seating at keynote sessions, complimentary refreshments, and invitation to the VIP networking reception.</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Tech Innovation Summit 2023</p>
+            <p>Organized by Global Tech Events</p>
+            <div class="contact-info">
+                <p>Questions? Contact us at <a href="mailto:support@techinnovationsummit.com">support@techinnovationsummit.com</a></p>
+                <p>Visit our website: <a href="https://www.techinnovationsummit.com">www.techinnovationsummit.com</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
