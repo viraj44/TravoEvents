@@ -790,20 +790,37 @@
             <div class="menu-section">
                 <div class="menu-title">Main</div>
 
+                <a class="menu-item" href="#" onclick="redirectToController('event', 'create')">
+                    <span class="menu-icon">🏛️</span>
+                    <span>Configure Event</span>
+                    <span class="menu-badge" id="eventBadge">0</span>
+                </a>
+
+                <a class="menu-item" href="#" onclick="redirectToController('group', 'create')">
+                    <span class="menu-icon">🏛️</span>
+                    <span>Setup Group</span>
+                    <span class="menu-badge" id="eventBadge">0</span>
+                </a>
+
+
                 <a class="menu-item active" href="#" onclick="redirectToController('Home', 'index')">
-                    <span class="menu-icon"><i class="fas fa-users"></i></span>
+                    <span class="menu-icon">👥</span>
                     <span>Participants</span>
                     <span class="menu-badge" id="participantBadge">0</span>
                 </a>
                 <a class="menu-item" href="#" onclick="redirectToController('group', 'index')">
-                    <span class="menu-icon">📦</span>
-                    <span>Groups</span>
+                    <span class="menu-icon">💼</span>
+                    <span>Assign Groups</span>
                     <span class="menu-badge" id="groupBadge">0</span>
                 </a>
                 <a class="menu-item" href="#" onclick="redirectToController('participant', 'index')">
-                    <span class="menu-icon">📦</span>
+                    <span class="menu-icon">👤</span>
                     <span>Manage Participants</span>
                     <span class="menu-badge" id="groupBadge">0</span>
+                </a>
+                <a class="menu-item" href="#" onclick="redirectToController('emailconfig', 'index')">
+                    <span class="menu-icon">✉️</span>
+                    <span>Email</span>
                 </a>
 
                 <a class="menu-item" href="#" onclick="redirectToController('pass', 'scan')">
@@ -813,10 +830,7 @@
                 </a>
 
 
-                <a class="menu-item" href="#" onclick="redirectToController('emailconfig', 'index')">
-                    <span class="menu-icon">✉️</span>
-                    <span>Email</span>
-                </a>
+               
             </div>
 
             <div class="menu-section">
